@@ -21,14 +21,14 @@ export class AppComponent implements OnInit {
   }
 
   populateFakeData() {
-    for (let i = 0; i < 20; i++) {
+    for (let i = 0; i < 10; i++) {
       this.data.push({ name: 'item' + i });
     }
   }
 
   paginate(pageSize: number, itemsCount: number) {
     let currentIndex = 0;
-    this.pages = (itemsCount - 1) / pageSize + 1;
+    this.pages = Math.ceil((itemsCount - 1) / pageSize + 1);
     for (let i = 0; i < this.pages; i++) {
       this.paginatedData.push({
         pageNumber: currentIndex + 1,
@@ -45,6 +45,12 @@ export class AppComponent implements OnInit {
 
   next() {
     this.currentPageIndex += 1;
+    this.currentPage = this.paginatedData[this.currentPageIndex];
+  }
+
+  switchPage(index: any) {
+    console.log(index.target.value);
+    this.currentPageIndex = index.target.value - 1;
     this.currentPage = this.paginatedData[this.currentPageIndex];
   }
 }

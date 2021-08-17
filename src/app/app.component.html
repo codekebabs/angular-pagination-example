@@ -20,4 +20,5 @@ Current Page : {{currentPageIndex}}
 <p>
   <button (click)="previous()" *ngIf="currentPageIndex > 0">Previous</button>&nbsp;&nbsp;
   <button (click)="next()" *ngIf="(currentPageIndex + 1) < pages - 1 ">Next</button>
+  <input (keyup)="switchPage($event)" type="text"/>
 </p>
