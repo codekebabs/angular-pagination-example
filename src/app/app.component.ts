@@ -28,7 +28,7 @@ export class AppComponent implements OnInit {
 
   paginate(pageSize: number, itemsCount: number) {
     let currentIndex = 0;
-    this.pages = Math.ceil((itemsCount - 1) / pageSize + 1);
+    this.pages = Math.Ceil(itemsCount/pageSize);
     for (let i = 0; i < this.pages; i++) {
       this.paginatedData.push({
         pageNumber: currentIndex + 1,
